@@ -63,6 +63,8 @@ public class Util {
          * Used by the mixer to tell the players which channels are on and off the air.
          */
         CHANNELS_ON_AIR(0x03, "Channels On Air", BeatFinder.BEAT_PORT),
+        
+        ABSOLUTE_POSITION(0xb, "Absolute Position", BeatFinder.BEAT_PORT),
 
         /**
          * Used to ask a player for information about the media mounted in a slot.

@@ -4,7 +4,7 @@
 
     <groupId>org.deepsymmetry</groupId>
     <artifactId>beat-link</artifactId>
-    <version>7.0.1-SNAPSHOT</version>
+    <version>7.0.2</version>
     <packaging>jar</packaging>
 
     <name>beat-link</name>
@@ -276,14 +276,13 @@
                     </execution>
                 </executions>
             </plugin>
-
+<!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
                     <release>8</release>
                     <additionalOptions>-html5</additionalOptions>
-                    <additionalJOption>--no-module-directories</additionalJOption>
                 </configuration>
                 <executions>
                     <execution>
@@ -308,7 +307,7 @@
                     </execution>
                 </executions>
             </plugin>
-
+-->
         </plugins>
     </build>
 
