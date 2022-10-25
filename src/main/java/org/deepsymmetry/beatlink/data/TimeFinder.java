@@ -494,9 +494,9 @@ public class TimeFinder extends LifecycleParticipant {
 				} else { // We have some information, see if it is a significant change from what was
 							// last reported
 					final TrackPositionUpdate lastUpdate = entry.getValue();
-					if (lastUpdate == NO_INFORMATION || lastUpdate.playing != update.playing
-							|| Math.abs(lastUpdate.pitch - update.pitch) > 0.000001
-							|| interpolationsDisagree(lastUpdate, update)) {
+					if (lastUpdate == NO_INFORMATION || lastUpdate.playing != update.playing) {
+//							|| Math.abs(lastUpdate.pitch - update.pitch) > 0.000001
+//							|| interpolationsDisagree(lastUpdate, update)) {
 						if (trackPositionListeners.replace(entry.getKey(), entry.getValue(), update)) {
 							try {
 								entry.getKey().movementChanged(update);
@@ -710,6 +710,7 @@ public class TimeFinder extends LifecycleParticipant {
 			VirtualCdj.getInstance().start();
 			BeatFinder.getInstance().addLifecycleListener(lifecycleListener);
 			BeatFinder.getInstance().addBeatListener(beatListener);
+			BeatFinder.getInstance().addAbsolutePositionListener(absolutePositionListener);
 			BeatFinder.getInstance().start();
 			running.set(true);
 			deliverLifecycleAnnouncement(logger, true);
@@ -773,7 +774,6 @@ public class TimeFinder extends LifecycleParticipant {
 		public void newAbsolutePosition(AbsolutePosition absolutePosition) {
 			if (absolutePosition.getDeviceNumber() < 16) { // We only care about CDJs.
 				updates.put(absolutePosition.getDeviceNumber(), absolutePosition);
-				// logger.info("Beat: " + beat.getBeatWithinBar());
 				final BeatGrid beatGrid = BeatGridFinder.getInstance().getLatestBeatGridFor(absolutePosition);
 				if (beatGrid != null) {
 					TrackPositionUpdate lastPosition = positions.get(absolutePosition.getDeviceNumber());

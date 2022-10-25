@@ -429,6 +429,8 @@ public class BeatFinder extends LifecycleParticipant {
 	 * @param beat the message announcing the new beat
 	 */
 	private void deliverBeat(final Beat beat) {
+		//In case of CDJ3000 lets rely on Absolute Position Packets
+		if (beat.getDeviceName().equals("CDJ-3000")) return;
 		VirtualCdj.getInstance().processBeat(beat);
 		final BeatListener timeFinderListener = timeFinderBeatListener.get();
 		if (timeFinderListener != null) {
