@@ -28,7 +28,7 @@ public class BeatGrid {
     /**
      * The message field holding the raw bytes of the beat grid as it was read over the network.
      */
-    private final ByteBuffer rawData;
+    public final ByteBuffer rawData;
 
     /**
      * Get the raw bytes of the beat grid as it was read over the network. This can be used to analyze fields
@@ -55,17 +55,17 @@ public class BeatGrid {
     /**
      * Holds the reported musical count of each beat.
      */
-    private final int[] beatWithinBarValues;
+    public final int[] beatWithinBarValues;
 
     /**
      * Holds the reported tempo of each beat.
      */
-    private final int[] bpmValues;
+    public final int[] bpmValues;
 
     /**
      * Holds the reported start time of each beat in milliseconds.
      */
-    private final long[] timeWithinTrackValues;
+    public final long[] timeWithinTrackValues;
 
     /**
      * Constructor for when reading from the network.
